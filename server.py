@@ -8,12 +8,11 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 app = FastAPI()
 
-# Cargar el modelo al iniciar la API
+
 model = tf.keras.models.load_model('app/model.h5')
 
-# Definición de ImageVector
 class ImageVector(BaseModel):
-    image_vector: list  # Puedes ajustar el tipo según sea necesario (por ejemplo, List[float] si sabes que son floats)
+    image_vector: list  
 
 @app.get("/prueba")
 def read_root():
